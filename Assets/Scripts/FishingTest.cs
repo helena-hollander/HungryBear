@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class FishingTest : MonoBehaviour
 {
-
+    public FishCounter fishcounter;
     public float Timer = 0f;
     private bool TimerRunning = false;
     public float targetTime = 1f;
-    public float targetTime2 = 0.5f;
-    public float targetTime3 = 0.25f;
-    private int stage = 0;
+    public int stage = 0;
     public float tolerance = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,13 +40,34 @@ public class FishingTest : MonoBehaviour
                     {
                         stage += 1;
                         print("stage "+stage);
+                        if (stage == 1)
+                        {
+                            targetTime = 0.8f;
+                            tolerance = 0.5f;
+                            print("tolerance "+tolerance);
+                            print("targetTime "+ targetTime);
+                        } else if (stage == 2)
+                        {
+                            targetTime = 0.25f;
+                            tolerance = 0.3f;
+                        } else if (stage == 3)
+                        {
+                            print("Fish caught!");
+                            TimerRunning = false;
+                            stage = 0;
+                            targetTime = 1;
+                            tolerance = 0.5f;
+                            fishcounter.FishCaught();
+                        }
                     }
                     else
                     {
                         TimerRunning = false;
                         stage = 0;
+                        targetTime = 1;
+                        tolerance = 0.5f;
                     }
                 }
             }
-    }
+     }
 }
