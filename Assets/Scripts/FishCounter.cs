@@ -1,13 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class FishCounter : MonoBehaviour
 {
     private int fishes = 0;
+    public TextMeshPro fishCountText;
 
     public void FishCaught()
     {
-        fishes++;
+        fishes += 1;
         print("fishes: " + fishes);
+        fishCountText.text = "Fishiesss " + fishes.ToString();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
