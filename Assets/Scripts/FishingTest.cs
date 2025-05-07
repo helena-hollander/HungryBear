@@ -35,7 +35,7 @@ public class FishingTest : MonoBehaviour
                 {
                     float timeOffset = Mathf.Abs(targetTime - Timer);
 
-                    string animToPlay = "Pull";
+                    string animToPlay = "Pull 0";
                     
                     print("time offset "+timeOffset);
                    
@@ -57,7 +57,7 @@ public class FishingTest : MonoBehaviour
                         } else if (stage == 3)
                         {
                             print("Fish caught!");
-                            animToPlay = "Catch";
+                            animToPlay = "Catch 0";
                             
                             TimerRunning = false;
                             stage = 0;
