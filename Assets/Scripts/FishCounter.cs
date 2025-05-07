@@ -10,7 +10,7 @@ public class FishCounter : MonoBehaviour
     {
         fishes += 1;
         print("fishes: " + fishes);
-        fishCountText.text = "Fishiesss " + fishes.ToString();
+        fishCountText.text = fishes.ToString();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
