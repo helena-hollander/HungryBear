@@ -8,6 +8,8 @@ public class FishingTest : MonoBehaviour
     public float targetTime = 1f;
     public int stage = 0;
     public float tolerance = 0.5f;
+
+    public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +34,8 @@ public class FishingTest : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     float timeOffset = Mathf.Abs(targetTime - Timer);
+
+                    string animToPlay = "Pull";
                     
                     print("time offset "+timeOffset);
                    
@@ -53,6 +57,8 @@ public class FishingTest : MonoBehaviour
                         } else if (stage == 3)
                         {
                             print("Fish caught!");
+                            animToPlay = "Catch";
+                            
                             TimerRunning = false;
                             stage = 0;
                             targetTime = 1;
@@ -67,6 +73,8 @@ public class FishingTest : MonoBehaviour
                         targetTime = 1;
                         tolerance = 0.5f;
                     }
+                    
+                    animator.SetTrigger(animToPlay);
                 }
             }
      }
