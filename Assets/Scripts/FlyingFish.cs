@@ -8,7 +8,7 @@ public class FlyingFish : MonoBehaviour
    
     void Update()
     {
-        if(//fish close to hookPos ){
+        //if(//fish close to hookPos ){
            //navMesh pos target er hookPos
            //start noise wiggle
            //}
