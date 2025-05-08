@@ -7,7 +7,8 @@ public class FishingTest : MonoBehaviour
     private bool TimerRunning = false;
     public float targetTime = 1f;
     public int stage = 0;
-    public float tolerance = 0.5f;
+    public float tolerance = 1f;
+    public FishScript currentFish;
 
     public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +20,22 @@ public class FishingTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentFish == null)
+        {
+            foreach (var fish in FindObjectsByType<FishScript>(FindObjectsSortMode.None))
+            {
+                if (Vector3.Distance(fish.transform.position, transform.position) < tolerance)
+                {
+                    currentFish = fish;
+                    currentFish.agent.enabled = false;
+                    break;
+                }
+            }
+        }
+        else
+        {
+       
+
         if (!TimerRunning)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -64,6 +81,8 @@ public class FishingTest : MonoBehaviour
                             targetTime = 1;
                             tolerance = 0.5f;
                             fishcounter.FishCaught();
+                            currentFish.FishThrow();
+                            currentFish = null;
                         }
                     }
                     else
@@ -77,5 +96,6 @@ public class FishingTest : MonoBehaviour
                     animator.SetTrigger(animToPlay);
                 }
             }
-     }
+        }
+    }
 }
