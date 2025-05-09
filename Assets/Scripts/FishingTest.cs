@@ -8,6 +8,7 @@ public class FishingTest : MonoBehaviour
     public float targetTime = 1f;
     public int stage = 0;
     public float tolerance = 1f;
+    public float hookRange = 3f;
     public FishScript currentFish;
 
     public Animator animator;
@@ -24,7 +25,7 @@ public class FishingTest : MonoBehaviour
         {
             foreach (var fish in FindObjectsByType<FishScript>(FindObjectsSortMode.None))
             {
-                if (Vector3.Distance(fish.transform.position, transform.position) < tolerance)
+                if (Vector3.Distance(fish.transform.position, transform.position) < hookRange)
                 {
                     currentFish = fish;
                     currentFish.agent.enabled = false;
