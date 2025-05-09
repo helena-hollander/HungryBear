@@ -67,6 +67,7 @@ public class FishScript : MonoBehaviour //don't forget to change the script name
 
     rb = gameObject.GetComponent<Rigidbody>();
     rb.AddForce(Vector3.up *2000);
+    rb.AddForce(Vector3.right * 1.5f);
 
 
     }

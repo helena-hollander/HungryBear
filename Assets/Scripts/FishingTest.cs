@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class FishingTest : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class FishingTest : MonoBehaviour
     public float hookRange = 3f;
     public FishScript currentFish;
 
+    public FishScript caughtFish;
+    //public GameObject fish;
     public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,7 +86,9 @@ public class FishingTest : MonoBehaviour
                             targetTime = 1;
                             tolerance = 0.5f;
                             fishcounter.FishCaught();
+                            
                             currentFish.FishThrow();
+                            caughtFish = currentFish;
                             currentFish = null;
                         }
                     }
@@ -92,6 +98,12 @@ public class FishingTest : MonoBehaviour
                         stage = 0;
                         targetTime = 1;
                         tolerance = 0.5f;
+                       // currentFish.isOnNavMesh = true;
+
+                        currentFish.agent.enabled = true;
+                        currentFish = null;
+                        
+                        
                     }
                     
                     animator.SetTrigger(animToPlay);
