@@ -12,7 +12,6 @@ public class FishingTest : MonoBehaviour
     public float tolerance = 1f;
     public float hookRange = 3f;
     public FishScript currentFish;
-
     public FishScript caughtFish;
     //public GameObject fish;
     public Animator animator;
