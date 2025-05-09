@@ -87,7 +87,7 @@ public class FishingTest : MonoBehaviour
                             fishcounter.FishCaught();
                             
                             currentFish.FishThrow();
-                            caughtFish = currentFish;
+                            //caughtFish = currentFish;
                             currentFish = null;
                         }
                     }
@@ -100,7 +100,7 @@ public class FishingTest : MonoBehaviour
                        // currentFish.isOnNavMesh = true;
 
                         currentFish.agent.enabled = true;
-                        currentFish = null;
+                        //currentFish = null;
                         
                         
                     }
