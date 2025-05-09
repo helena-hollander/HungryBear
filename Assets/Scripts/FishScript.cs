@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
-using UnityEngine.AI; //important
+using UnityEngine.AI;
+using Vector3 = UnityEngine.Vector3; //important
 
 //if you use this code you are contractually obligated to like the YT video
 public class FishScript : MonoBehaviour //don't forget to change the script name if you haven't
 {
     public NavMeshAgent agent;
     public float range; //radius of sphere
+    public FishingTest fishCatched;
+    private Rigidbody rb;
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
@@ -21,6 +25,10 @@ public class FishScript : MonoBehaviour //don't forget to change the script name
     void Update()
 {
     // Kun hvis vi ikke venter på ny path OG vi er tæt nok på målet
+    if (agent.enabled)
+    {
+   
+
     if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
     {
         if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
@@ -32,6 +40,7 @@ public class FishScript : MonoBehaviour //don't forget to change the script name
                 agent.SetDestination(point);
             }
         }
+    }
     }
 }
 
@@ -52,5 +61,15 @@ public class FishScript : MonoBehaviour //don't forget to change the script name
         return false;
     }
 
-    
+    public void FishThrow()
+    {
+
+
+    rb = gameObject.GetComponent<Rigidbody>();
+    rb.AddForce(Vector3.up *2000);
+
+
+    }
+
+
 }

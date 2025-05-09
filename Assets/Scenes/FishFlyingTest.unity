@@ -576,6 +576,7 @@ GameObject:
   - component: {fileID: 792475648}
   - component: {fileID: 792475647}
   - component: {fileID: 792475646}
+  - component: {fileID: 792475651}
   m_Layer: 0
   m_Name: FishTest
   m_TagString: Untagged
@@ -634,6 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 792475646}
   range: 10
+  fishCatched: {fileID: 0}
   centrePoint: {fileID: 1291433893}
 --- !u!65 &792475648
 BoxCollider:
@@ -709,6 +711,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792475644}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &792475651
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792475644}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1136325805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -925,6 +954,7 @@ GameObject:
   - component: {fileID: 1465119776}
   - component: {fileID: 1465119775}
   - component: {fileID: 1465119774}
+  - component: {fileID: 1465119779}
   m_Layer: 0
   m_Name: FishTest (3)
   m_TagString: Untagged
@@ -983,6 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1465119774}
   range: 10
+  fishCatched: {fileID: 0}
   centrePoint: {fileID: 1291433893}
 --- !u!65 &1465119776
 BoxCollider:
@@ -1058,6 +1089,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465119772}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1465119779
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465119772}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1654527547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 80, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103.09, y: -97.8}
+  m_AnchoredPosition: {x: -102.43, y: -97.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1666967881
@@ -1165,7 +1223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fish count
+  m_text: Press SPACE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1317,7 +1375,8 @@ MonoBehaviour:
   Timer: 0
   targetTime: 1
   stage: 0
-  tolerance: 0.5
+  tolerance: 5
+  currentFish: {fileID: 0}
   animator: {fileID: 446387262}
 --- !u!4 &1736951061
 Transform:
@@ -1328,7 +1387,7 @@ Transform:
   m_GameObject: {fileID: 1736951059}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.3843064, y: 2.132523, z: 4.4521112}
+  m_LocalPosition: {x: 0.24, y: 0.53, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1348,6 +1407,7 @@ GameObject:
   - component: {fileID: 1744190465}
   - component: {fileID: 1744190464}
   - component: {fileID: 1744190463}
+  - component: {fileID: 1744190468}
   m_Layer: 0
   m_Name: FishTest (4)
   m_TagString: Untagged
@@ -1406,6 +1466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1744190463}
   range: 10
+  fishCatched: {fileID: 0}
   centrePoint: {fileID: 1291433893}
 --- !u!65 &1744190465
 BoxCollider:
@@ -1481,6 +1542,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744190461}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1744190468
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744190461}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1811820128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,6 +1583,7 @@ GameObject:
   - component: {fileID: 1811820132}
   - component: {fileID: 1811820131}
   - component: {fileID: 1811820130}
+  - component: {fileID: 1811820135}
   m_Layer: 0
   m_Name: FishTest (2)
   m_TagString: Untagged
@@ -1553,6 +1642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1811820130}
   range: 10
+  fishCatched: {fileID: 0}
   centrePoint: {fileID: 1291433893}
 --- !u!65 &1811820132
 BoxCollider:
@@ -1628,6 +1718,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811820128}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1811820135
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811820128}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2035258441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1838,7 @@ GameObject:
   - component: {fileID: 2042872558}
   - component: {fileID: 2042872557}
   - component: {fileID: 2042872556}
+  - component: {fileID: 2042872561}
   m_Layer: 0
   m_Name: FishTest (1)
   m_TagString: Untagged
@@ -1779,6 +1897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2042872556}
   range: 10
+  fishCatched: {fileID: 0}
   centrePoint: {fileID: 1291433893}
 --- !u!65 &2042872558
 BoxCollider:
@@ -1854,6 +1973,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042872554}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &2042872561
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042872554}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2085052245
 PrefabInstance:
   m_ObjectHideFlags: 0
