@@ -682,6 +682,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1226390434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226390430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c87f9e6e5af41f69b6e93c110ecfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  range: 10
+  fishCatched: {fileID: 0}
+  centrePoint: {fileID: 1291433893}
+--- !u!95 &1226390435
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226390430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9a5f729513ee4f1a8c8a22e78258a4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1291433888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1099,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2aaa83584a5e9492c91ccde3aff4e4a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1226390432}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2aaa83584a5e9492c91ccde3aff4e4a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1226390434}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2aaa83584a5e9492c91ccde3aff4e4a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1226390435}
   m_SourcePrefab: {fileID: 100100000, guid: 2aaa83584a5e9492c91ccde3aff4e4a0, type: 3}
 --- !u!1 &1654527547
 GameObject:
